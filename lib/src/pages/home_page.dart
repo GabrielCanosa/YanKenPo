@@ -11,7 +11,8 @@ class HomePage extends StatelessWidget {
       "ruta": "bombaNuclearZapatoCucaracha",
       "texto": "Bomba nuclear - Zapato - Cucaracha"
     },
-    {"ruta": "fuegoAguaArbol", "texto": "Fuego - Agua - Arbol"}
+    {"ruta": "fuegoAguaArbol", "texto": "Fuego - Agua - Arbol"},
+    {"ruta": "elefantePiedraAguila", "texto": "Elefante - Ratón - Aguila"}
   ];
 
   @override

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:piedra_papel_tijera/src/pages/elefante_raton_aguila.dart';
 import 'package:piedra_papel_tijera/src/pages/home_page.dart';
 import 'package:piedra_papel_tijera/src/pages/piedra_papel_tijera.dart';
 import 'package:piedra_papel_tijera/src/pages/piedra_papel_tijera_lagarto_spock.dart';
@@ -13,6 +14,7 @@ Map<String, WidgetBuilder> getApplicationRoutes() {
         PiedraPapelTijeraLagartoSpockPage(),
     'bombaNuclearZapatoCucaracha': (BuildContext context) =>
         BombaNuclearZapatoCucarachaPage(),
-    'fuegoAguaArbol': (BuildContext context) => FuegoAguaArbolPage()
+    'fuegoAguaArbol': (BuildContext context) => FuegoAguaArbolPage(),
+    'elefantePiedraAguila': (BuildContext context) => ElefanteRatonAguila()
   };
 }

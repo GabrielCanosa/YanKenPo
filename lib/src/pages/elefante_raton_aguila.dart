@@ -6,33 +6,33 @@ import 'dart:io';
 
 import 'package:piedra_papel_tijera/src/classes/image.dart';
 
-class FuegoAguaArbolPage extends StatefulWidget {
+class ElefanteRatonAguila extends StatefulWidget {
   @override
-  _FuegoAguaArbolPageState createState() => _FuegoAguaArbolPageState();
+  _ElefanteRatonAguilaState createState() => _ElefanteRatonAguilaState();
 }
 
-class _FuegoAguaArbolPageState extends State<FuegoAguaArbolPage> {
+class _ElefanteRatonAguilaState extends State<ElefanteRatonAguila> {
   CountDownController _controller = CountDownController();
   final _random = new Random();
-  static const arbol = 1;
-  static const fuego = 2;
-  static const agua = 3;
+  static const elefante = 1;
+  static const raton = 2;
+  static const aguila = 3;
   int computerSelectedOption = null;
   int playerSelectedOption = null;
   bool playerHasChoosen = false;
   String urlMachinesChoice = 'assets/Images/interrogation.png';
-  Imagen imgArbol =
-      new Imagen('assets/Images/arbol.png', Colors.white, Colors.green[800], 1);
-  Imagen imgFuego =
-      new Imagen('assets/Images/fuego.png', Colors.white, Colors.red, 2);
-  Imagen imgAgua =
-      new Imagen('assets/Images/agua.png', Colors.white, Colors.blue, 3);
+  Imagen imgElefante = new Imagen(
+      'assets/Images/elefante.png', Colors.white, Colors.green[800], 1);
+  Imagen imgRaton =
+      new Imagen('assets/Images/raton.png', Colors.white, Colors.red, 2);
+  Imagen imgAguila =
+      new Imagen('assets/Images/aguila.png', Colors.white, Colors.blue, 3);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('Fuego Agua Arbol'),
+          title: Text('Raton Aguila Elefante'),
         ),
         body: Container(
             decoration: BoxDecoration(
@@ -51,24 +51,24 @@ class _FuegoAguaArbolPageState extends State<FuegoAguaArbolPage> {
                   children: [
                     Expanded(
                       child: _returnImagen(
-                          imgArbol.urlImage,
-                          imgArbol.colorCenter,
-                          imgArbol.colorBorder,
-                          imgArbol.playerSelectedOpt),
+                          imgElefante.urlImage,
+                          imgElefante.colorCenter,
+                          imgElefante.colorBorder,
+                          imgElefante.playerSelectedOpt),
                     ),
                     Expanded(
                       child: _returnImagen(
-                          imgFuego.urlImage,
-                          imgFuego.colorCenter,
-                          imgFuego.colorBorder,
-                          imgFuego.playerSelectedOpt),
+                          imgRaton.urlImage,
+                          imgRaton.colorCenter,
+                          imgRaton.colorBorder,
+                          imgRaton.playerSelectedOpt),
                     ),
                     Expanded(
                         child: _returnImagen(
-                            imgAgua.urlImage,
-                            imgAgua.colorCenter,
-                            imgAgua.colorBorder,
-                            imgAgua.playerSelectedOpt)),
+                            imgAguila.urlImage,
+                            imgAguila.colorCenter,
+                            imgAguila.colorBorder,
+                            imgAguila.playerSelectedOpt)),
                   ],
                 ),
               ],
@@ -126,14 +126,14 @@ class _FuegoAguaArbolPageState extends State<FuegoAguaArbolPage> {
   _computerSelectOption() {
     computerSelectedOption = random(1, 4);
     switch (computerSelectedOption) {
-      case arbol:
-        urlMachinesChoice = 'assets/Images/arbol.png';
+      case elefante:
+        urlMachinesChoice = 'assets/Images/elefante.png';
         break;
-      case fuego:
-        urlMachinesChoice = 'assets/Images/fuego.png';
+      case raton:
+        urlMachinesChoice = 'assets/Images/raton.png';
         break;
-      case agua:
-        urlMachinesChoice = 'assets/Images/agua.png';
+      case aguila:
+        urlMachinesChoice = 'assets/Images/aguila.png';
         break;
     }
 
@@ -233,31 +233,31 @@ class _FuegoAguaArbolPageState extends State<FuegoAguaArbolPage> {
     playerSelectedOption = null;
     playerHasChoosen = false;
     urlMachinesChoice = 'assets/Images/interrogation.png';
-    imgArbol =
-        new Imagen('assets/Images/arbol.png', Colors.white, Colors.red, 1);
-    imgFuego =
-        new Imagen('assets/Images/fuego.png', Colors.white, Colors.blue, 2);
-    imgAgua = new Imagen(
-        'assets/Images/agua.png', Colors.white, Colors.yellowAccent, 3);
+    imgElefante =
+        new Imagen('assets/Images/elefante.png', Colors.white, Colors.red, 1);
+    imgRaton =
+        new Imagen('assets/Images/raton.png', Colors.white, Colors.blue, 2);
+    imgAguila = new Imagen(
+        'assets/Images/aguila.png', Colors.white, Colors.yellowAccent, 3);
     _controller.restart();
   }
 
   _changeImagesNotSelected() {
     if (playerSelectedOption == 1) {
-      imgFuego = new Imagen(
-          'assets/Images/fuego.png', Colors.grey[700], Colors.grey[700], 2);
-      imgAgua = new Imagen(
-          'assets/Images/agua.png', Colors.grey[700], Colors.grey[700], 3);
+      imgRaton = new Imagen(
+          'assets/Images/raton.png', Colors.grey[700], Colors.grey[700], 2);
+      imgAguila = new Imagen(
+          'assets/Images/aguila.png', Colors.grey[700], Colors.grey[700], 3);
     } else if (playerSelectedOption == 2) {
-      imgArbol = new Imagen(
-          'assets/Images/arbol.png', Colors.grey[700], Colors.grey[700], 1);
-      imgAgua = new Imagen(
-          'assets/Images/agua.png', Colors.grey[700], Colors.grey[700], 3);
+      imgElefante = new Imagen(
+          'assets/Images/elefante.png', Colors.grey[700], Colors.grey[700], 1);
+      imgAguila = new Imagen(
+          'assets/Images/aguila.png', Colors.grey[700], Colors.grey[700], 3);
     } else {
-      imgArbol = new Imagen(
-          'assets/Images/arbol.png', Colors.grey[700], Colors.grey[700], 1);
-      imgFuego = new Imagen(
-          'assets/Images/fuego.png', Colors.grey[700], Colors.grey[700], 2);
+      imgElefante = new Imagen(
+          'assets/Images/elefante.png', Colors.grey[700], Colors.grey[700], 1);
+      imgRaton = new Imagen(
+          'assets/Images/raton.png', Colors.grey[700], Colors.grey[700], 2);
     }
   }
 }
