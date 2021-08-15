@@ -19,7 +19,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Cashita'),
+        title: Center(child: Text('¡Elige un juego!')),
       ),
       body: _listado(),
     );
@@ -30,6 +30,7 @@ class HomePage extends StatelessWidget {
         initialData: initialRoutes,
         builder: (BuildContext context, AsyncSnapshot<List<dynamic>> snapshot) {
           return ListView(
+            padding: EdgeInsets.all(5.0),
             children: _listaItems(snapshot.data, context),
           );
         });
@@ -38,13 +39,15 @@ class HomePage extends StatelessWidget {
   List<Widget> _listaItems(List<dynamic> data, BuildContext context) {
     final List<Widget> opciones = [];
     data.forEach((opt) {
-      final widgetTemp = ListTile(
-        title: Text(opt['texto']),
-        onTap: () {
-          Navigator.pushNamed(context, opt['ruta']);
-        },
-      );
-      opciones..add(widgetTemp)..add(Divider());
+      final widgetTemp = Card(
+          elevation: 2,
+          child: ListTile(
+            title: Center(child: Text(opt['texto'])),
+            onTap: () {
+              Navigator.pushNamed(context, opt['ruta']);
+            },
+          ));
+      opciones..add(widgetTemp);
     });
     return opciones;
   }

@@ -138,8 +138,6 @@ class _BombaNuclearZapatoCucarachaPageState
         urlMachinesChoice = 'assets/Images/zapato.png';
         break;
     }
-
-    sleep(Duration(seconds: 1));
   }
 
   int random(int min, int max) => min + _random.nextInt(max - min);
@@ -183,27 +181,27 @@ class _BombaNuclearZapatoCucarachaPageState
 
     if (playerHasChoosen) {
       if (computerSelectedOption == playerSelectedOption) {
-        text = 'TIE';
+        text = 'EMPATE';
         colorText = Colors.black;
       }
 
       if (computerSelectedOption == 1 && playerSelectedOption == 2) {
-        text = 'YOU WIN';
+        text = 'GANASTE';
         colorText = Colors.green[900];
       } else if (computerSelectedOption == 1 && playerSelectedOption == 3) {
-        text = 'YOU LOSE';
+        text = 'PERDISTE';
         colorText = Colors.red[900];
       } else if (computerSelectedOption == 2 && playerSelectedOption == 1) {
-        text = 'YOU LOSE';
+        text = 'PERDISTE';
         colorText = Colors.red[900];
       } else if (computerSelectedOption == 2 && playerSelectedOption == 3) {
-        text = 'YOU WIN';
+        text = 'GANASTE';
         colorText = Colors.green[900];
       } else if (computerSelectedOption == 3 && playerSelectedOption == 1) {
-        text = 'YOU WIN';
+        text = 'GANASTE';
         colorText = Colors.green[900];
       } else if (computerSelectedOption == 3 && playerSelectedOption == 2) {
-        text = 'YOU LOSE';
+        text = 'PERDISTE';
         colorText = Colors.red[900];
       }
 

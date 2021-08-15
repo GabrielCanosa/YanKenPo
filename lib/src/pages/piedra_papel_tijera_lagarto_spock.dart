@@ -90,7 +90,6 @@ class _PiedraPapelTijeraLagartoSpockPageState
             _controller.pause();
             _changeImagesNotSelected();
             _computerSelectOption();
-            // sleep(Duration(seconds: 1));
             _result();
           });
         },
@@ -190,7 +189,7 @@ class _PiedraPapelTijeraLagartoSpockPageState
 
     if (playerHasChoosen) {
       if (computerSelectedOption == playerSelectedOption) {
-        text = 'TIE';
+        text = 'EMPATE';
         colorText = Colors.black;
       }
 
