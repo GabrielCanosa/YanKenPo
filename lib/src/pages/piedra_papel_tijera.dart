@@ -17,6 +17,7 @@ class _PiedraPapelTijeraPageState extends State<PiedraPapelTijeraPage> {
   static const piedra = 1;
   static const papel = 2;
   static const tijera = 3;
+  String contentDialog = '';
   int computerSelectedOption = null;
   int playerSelectedOption = null;
   bool playerHasChoosen = false;
@@ -185,21 +186,27 @@ class _PiedraPapelTijeraPageState extends State<PiedraPapelTijeraPage> {
 
       if (computerSelectedOption == 1 && playerSelectedOption == 2) {
         text = 'GANASTE';
+        contentDialog = 'Papel envuelve piedra';
         colorText = Colors.green[900];
       } else if (computerSelectedOption == 1 && playerSelectedOption == 3) {
         text = 'PERDISTE';
+        contentDialog = 'Piedra rompe tijera';
         colorText = Colors.red[900];
       } else if (computerSelectedOption == 2 && playerSelectedOption == 1) {
         text = 'PERDISTE';
+        contentDialog = 'Papel envuelve piedra';
         colorText = Colors.red[900];
       } else if (computerSelectedOption == 2 && playerSelectedOption == 3) {
         text = 'GANASTE';
+        contentDialog = 'Tijera corta papel';
         colorText = Colors.green[900];
       } else if (computerSelectedOption == 3 && playerSelectedOption == 1) {
         text = 'GANASTE';
+        contentDialog = 'Piedra rompe tijera';
         colorText = Colors.green[900];
       } else if (computerSelectedOption == 3 && playerSelectedOption == 2) {
         text = 'PERDISTE';
+        contentDialog = 'Tijera corta papel';
         colorText = Colors.red[900];
       }
 
@@ -207,6 +214,7 @@ class _PiedraPapelTijeraPageState extends State<PiedraPapelTijeraPage> {
           context: context,
           builder: (_) => AlertDialog(
               title: Center(child: Text(text)),
+              content: Text(contentDialog),
               titleTextStyle: TextStyle(
                   color: colorText, fontWeight: FontWeight.bold, fontSize: 30),
               actions: [
@@ -230,6 +238,7 @@ class _PiedraPapelTijeraPageState extends State<PiedraPapelTijeraPage> {
     computerSelectedOption = null;
     playerSelectedOption = null;
     playerHasChoosen = false;
+    contentDialog = '';
     urlMachinesChoice = 'assets/Images/interrogation.png';
     imgPiedra =
         new Imagen('assets/Images/piedra.png', Colors.white, Colors.red, 1);

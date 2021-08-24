@@ -19,6 +19,7 @@ class _BombaNuclearZapatoCucarachaPageState
   static const bombanuclear = 1;
   static const cucaracha = 2;
   static const zapato = 3;
+  String contentDialog = '';
   int computerSelectedOption = null;
   int playerSelectedOption = null;
   bool playerHasChoosen = false;
@@ -187,21 +188,27 @@ class _BombaNuclearZapatoCucarachaPageState
 
       if (computerSelectedOption == 1 && playerSelectedOption == 2) {
         text = 'GANASTE';
+        contentDialog = 'Cucaracha sobrevive a bomba nuclear';
         colorText = Colors.green[900];
       } else if (computerSelectedOption == 1 && playerSelectedOption == 3) {
         text = 'PERDISTE';
+        contentDialog = 'Bomba nuclear destruye zapato';
         colorText = Colors.red[900];
       } else if (computerSelectedOption == 2 && playerSelectedOption == 1) {
         text = 'PERDISTE';
+        contentDialog = 'Cucaracha sobrevive a bomba nuclear';
         colorText = Colors.red[900];
       } else if (computerSelectedOption == 2 && playerSelectedOption == 3) {
         text = 'GANASTE';
+        contentDialog = 'Zapato aplasta a cucaracha';
         colorText = Colors.green[900];
       } else if (computerSelectedOption == 3 && playerSelectedOption == 1) {
         text = 'GANASTE';
+        contentDialog = 'Bomba nuclear destruye zapato';
         colorText = Colors.green[900];
       } else if (computerSelectedOption == 3 && playerSelectedOption == 2) {
         text = 'PERDISTE';
+        contentDialog = 'Zapato aplasta a cucaracha';
         colorText = Colors.red[900];
       }
 
@@ -209,6 +216,7 @@ class _BombaNuclearZapatoCucarachaPageState
           context: context,
           builder: (_) => AlertDialog(
               title: Center(child: Text(text)),
+              content: Text(contentDialog),
               titleTextStyle: TextStyle(
                   color: colorText, fontWeight: FontWeight.bold, fontSize: 30),
               actions: [
@@ -232,6 +240,7 @@ class _BombaNuclearZapatoCucarachaPageState
     computerSelectedOption = null;
     playerSelectedOption = null;
     playerHasChoosen = false;
+    contentDialog = '';
     urlMachinesChoice = 'assets/Images/interrogation.png';
     imgBombaNuclear = new Imagen(
         'assets/Images/bombanuclear.png', Colors.white, Colors.red, 1);

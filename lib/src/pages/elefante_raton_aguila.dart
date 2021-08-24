@@ -17,6 +17,7 @@ class _ElefanteRatonAguilaState extends State<ElefanteRatonAguila> {
   static const elefante = 1;
   static const raton = 2;
   static const aguila = 3;
+  String contentDialog = '';
   int computerSelectedOption = null;
   int playerSelectedOption = null;
   bool playerHasChoosen = false;
@@ -185,21 +186,27 @@ class _ElefanteRatonAguilaState extends State<ElefanteRatonAguila> {
 
       if (computerSelectedOption == 1 && playerSelectedOption == 2) {
         text = 'GANASTE';
+        contentDialog = 'Ratón espanta elefante';
         colorText = Colors.green[900];
       } else if (computerSelectedOption == 1 && playerSelectedOption == 3) {
         text = 'PERDISTE';
+        contentDialog = 'Elefante aplasta aguila';
         colorText = Colors.red[900];
       } else if (computerSelectedOption == 2 && playerSelectedOption == 1) {
         text = 'PERDISTE';
+        contentDialog = 'Ratón espanta elefante';
         colorText = Colors.red[900];
       } else if (computerSelectedOption == 2 && playerSelectedOption == 3) {
         text = 'GANASTE';
+        contentDialog = 'Aguila caza ratón';
         colorText = Colors.green[900];
       } else if (computerSelectedOption == 3 && playerSelectedOption == 1) {
         text = 'GANASTE';
+        contentDialog = 'Elefante aplasta aguila';
         colorText = Colors.green[900];
       } else if (computerSelectedOption == 3 && playerSelectedOption == 2) {
         text = 'PERDISTE';
+        contentDialog = 'Aguila caza ratón';
         colorText = Colors.red[900];
       }
 
@@ -207,6 +214,7 @@ class _ElefanteRatonAguilaState extends State<ElefanteRatonAguila> {
           context: context,
           builder: (_) => AlertDialog(
               title: Center(child: Text(text)),
+              content: Text(contentDialog),
               titleTextStyle: TextStyle(
                   color: colorText, fontWeight: FontWeight.bold, fontSize: 30),
               actions: [
@@ -230,6 +238,7 @@ class _ElefanteRatonAguilaState extends State<ElefanteRatonAguila> {
     computerSelectedOption = null;
     playerSelectedOption = null;
     playerHasChoosen = false;
+    contentDialog = '';
     urlMachinesChoice = 'assets/Images/interrogation.png';
     imgElefante =
         new Imagen('assets/Images/elefante.png', Colors.white, Colors.red, 1);

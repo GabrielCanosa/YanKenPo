@@ -17,6 +17,7 @@ class _FuegoAguaArbolPageState extends State<FuegoAguaArbolPage> {
   static const arbol = 1;
   static const fuego = 2;
   static const agua = 3;
+  String contentDialog = '';
   int computerSelectedOption = null;
   int playerSelectedOption = null;
   bool playerHasChoosen = false;
@@ -185,21 +186,27 @@ class _FuegoAguaArbolPageState extends State<FuegoAguaArbolPage> {
 
       if (computerSelectedOption == 1 && playerSelectedOption == 2) {
         text = 'GANASTE';
+        contentDialog = 'Fuego quema árbol';
         colorText = Colors.green[900];
       } else if (computerSelectedOption == 1 && playerSelectedOption == 3) {
         text = 'PERDISTE';
+        contentDialog = 'Agua riega árbol';
         colorText = Colors.red[900];
       } else if (computerSelectedOption == 2 && playerSelectedOption == 1) {
         text = 'PERDISTE';
+        contentDialog = 'Fuego quema árbol';
         colorText = Colors.red[900];
       } else if (computerSelectedOption == 2 && playerSelectedOption == 3) {
         text = 'GANASTE';
+        contentDialog = 'Agua apaga fuego';
         colorText = Colors.green[900];
       } else if (computerSelectedOption == 3 && playerSelectedOption == 1) {
         text = 'GANASTE';
+        contentDialog = 'Agua riega árbol';
         colorText = Colors.green[900];
       } else if (computerSelectedOption == 3 && playerSelectedOption == 2) {
         text = 'PERDISTE';
+        contentDialog = 'Agua apaga fuego';
         colorText = Colors.red[900];
       }
 
@@ -207,6 +214,7 @@ class _FuegoAguaArbolPageState extends State<FuegoAguaArbolPage> {
           context: context,
           builder: (_) => AlertDialog(
               title: Center(child: Text(text)),
+              content: Text(contentDialog),
               titleTextStyle: TextStyle(
                   color: colorText, fontWeight: FontWeight.bold, fontSize: 30),
               actions: [
@@ -230,6 +238,7 @@ class _FuegoAguaArbolPageState extends State<FuegoAguaArbolPage> {
     computerSelectedOption = null;
     playerSelectedOption = null;
     playerHasChoosen = false;
+    contentDialog = '';
     urlMachinesChoice = 'assets/Images/interrogation.png';
     imgArbol =
         new Imagen('assets/Images/arbol.png', Colors.white, Colors.red, 1);
