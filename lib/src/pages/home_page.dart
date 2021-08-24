@@ -12,7 +12,8 @@ class HomePage extends StatelessWidget {
       "texto": "Bomba nuclear - Zapato - Cucaracha"
     },
     {"ruta": "fuegoAguaArbol", "texto": "Fuego - Agua - Arbol"},
-    {"ruta": "elefantePiedraAguila", "texto": "Elefante - Ratón - Aguila"}
+    {"ruta": "elefantePiedraAguila", "texto": "Elefante - Ratón - Aguila"},
+    {"ruta": "otros", "texto": "Más info..."}
   ];
 
   @override
@@ -21,7 +22,10 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: Center(child: Text('¡Elige un juego!')),
       ),
-      body: _listado(),
+      body: CustomPaint(
+        child: _listado(),
+        painter: _CustomPainter(),
+      ),
     );
   }
 
@@ -50,5 +54,37 @@ class HomePage extends StatelessWidget {
       opciones..add(widgetTemp);
     });
     return opciones;
+  }
+}
+
+class _CustomPainter extends CustomPainter {
+  @override
+  void paint(Canvas canvas, Size size) {
+    final Gradient gradiente = new LinearGradient(
+        colors: [Colors.red, Colors.blue],
+        begin: Alignment.topCenter,
+        end: Alignment.bottomCenter);
+    final Rect rect =
+        new Rect.fromCircle(center: Offset(200.0, 100.0), radius: 180);
+
+    final paint = Paint()..shader = gradiente.createShader(rect);
+
+    paint.color = Colors.blue[300];
+    paint.style = PaintingStyle.fill;
+    paint.strokeWidth = 2;
+
+    final path = Path();
+
+    path.lineTo(0, size.height * 0.62);
+    path.lineTo(size.width, size.height * 0.62);
+    path.lineTo(size.width, 0);
+    path.lineTo(0, 0);
+
+    canvas.drawPath(path, paint);
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) {
+    throw true;
   }
 }

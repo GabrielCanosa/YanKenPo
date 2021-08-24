@@ -101,7 +101,7 @@ class _PiedraPapelTijeraLagartoSpockPageState
                 ),
                 borderRadius: BorderRadius.circular(50),
                 border: Border.all(width: 2, color: Colors.black)),
-            margin: EdgeInsets.all(10.0),
+            margin: EdgeInsets.all(2.0),
             child: Image.asset(urlImage, width: 110, height: 110)),
       ),
     );
