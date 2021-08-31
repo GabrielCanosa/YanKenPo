@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:circular_countdown_timer/circular_countdown_timer.dart';
 import 'dart:math';
-import 'dart:io';
 
 import 'package:piedra_papel_tijera/src/classes/image.dart';
 
